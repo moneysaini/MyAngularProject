@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-lg-6">
+        <p>pipe-sample works!</p>
+
+        <p>Product Id : {{product.productId}}</p>
+        <p>Product Code : {{product.productCode}}</p>
+        <p>Product Name : {{product.productName | uppercase | lowercase}}</p>
+        <p>Product Price : {{product.price | currency:'INR'}}</p>
+        <p>DOB: {{DOB | date: 'dd MMM yyyy'}}</p>
+
+        {{product | json}}
+
+        <hr />
+
+        <p>Search Text:</p><input type="text" [(ngModel)]="searchText" />
+        <ul>
+            <li *ngFor="let nm of names| mypipe: searchText">
+                {{nm | uppercase}}
+            </li>
+        </ul>
+
+        <input type="button" (click)="redirect()" class="btn btn-dark" value="Redirect to Directive" />
+    </div>
+    <div class="col-lg-6">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['personal']" >Personal Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['education']">Education Info</a>
+            </li>
+        </ul>
+        <router-outlet></router-outlet>
+    </div>
+    
+</div>
+

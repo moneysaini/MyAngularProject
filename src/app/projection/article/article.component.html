@@ -1,0 +1,21 @@
+<p>article works!</p>
+
+<div class="alert alert-primary text-center">
+   <b> <ng-content select="header"></ng-content></b>
+</div>
+
+
+
+<div class="alert alert-warning">
+    <ng-content select=".article"></ng-content>
+</div>
+
+
+<div class="alert alert-dark">
+    <ng-content select="footer"></ng-content>
+
+    Today: {{today| date:'dd MMM yyyy'}}
+</div>
+
+
+<input type="button" (click)="update()" value="Update" />
